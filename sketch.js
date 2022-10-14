@@ -311,6 +311,6 @@ function fstr() {
 }
 
 function slwr() {
-  if(fps > 0) {
+  if(fps > 2) {
     fps -= 2;
   }}
