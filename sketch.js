@@ -1,14 +1,34 @@
-var scl = 40;
-var s;
-var f;
+var s;        // snake
+var f;        // food
+
+//appearance
 var font;
 var fontsize = 80;
+var backgroundcolor = "rgb(255,210,255)";
+var snakecolor = "rgb(100,160,100)";
+var snakeeyescolor = "rgb(200,255,50)";
+var foodcolor = "rgb(200,0,50)";
+var foodhighlightcolor = "rgb(230,50,80)";
+
+// game setup
 var start;
 var file = "highscore";
 var highscore;
+var scl = 30;        // scale
+var newscl = 30;
+var tiny;
+var small
+var big;
+var chunky;
+var fps = 8;
+var faster;
+var slower;
+
+// sounds
 var eatsound;
 var diesound;
 var winsound;
+
 
 function preload() {
   font = loadFont('square-deal/square-deal.ttf');
@@ -20,16 +40,39 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600,600);
-  frameRate(5);
+  var cnv = createCanvas(600,600);
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+  var txt = createDiv('<h3>HOW TO PLAY:<br>PLAY: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
+  txt.position(60, 60);
+  frameRate(fps);
   textFont(font);
   s = new Snake();
   f = new Food();
   start = true;
+  tiny = createButton('tiny');
+  tiny.mouseClicked(sclr20);
+  tiny.position(windowWidth - 200, 60)
+  small = createButton('small');
+  small.mouseClicked(sclr30);
+  small.position(windowWidth - 200, 90)
+  big = createButton('big');
+  big.mouseClicked(sclr40);
+  big.position(windowWidth - 200, 120)
+  chunky = createButton('chunky');
+  chunky.mouseClicked(sclr50);
+  chunky.position(windowWidth - 200, 150)
+  faster = createButton('faster');
+  faster.mouseClicked(fstr);
+  faster.position(windowWidth - 200, 250)
+  slower = createButton('slower');
+  slower.mouseClicked(slwr);
+  slower.position(windowWidth - 200, 280)
 }
 
 function draw() {
-  background(255,210,255);
+  background(backgroundcolor);
   if(start) {
     startScreen();
   } else {
@@ -113,14 +156,14 @@ function Snake() {
   }
 
   this.show = function() {
-    fill(100,160,100);
-    stroke(100,160,100);
+    fill(snakecolor);
+    stroke(snakecolor);
     rect(this.x,this.y,scl);
     for(var i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x,this.tail[i].y,scl);
     }
-    fill(200, 255, 50);
-    stroke(200, 255, 50);
+    fill(snakeeyescolor);
+    stroke(snakeeyescolor);
     if(this.dir == "up") {
       rect(this.x + scl/5, this.y + scl/5, scl/5);
       rect(this.x + 3 * scl/5, this.y + scl/5, scl/5);
@@ -142,11 +185,11 @@ function Food() {
   this.y = floor(random(height / scl)) * scl;
 
   this.show = function() {
-    fill(200,0,50);
-    stroke(200,0,50);
+    fill(foodcolor);
+    stroke(foodcolor);
     rect(this.x,this.y,scl);
-    fill(250,80,120);
-    stroke(230,50,80);
+    fill(foodhighlightcolor);
+    stroke(foodhighlightcolor);
     rect(this.x + 2 * scl/5, this.y + scl/5, 2 * scl/5);
   }
 
@@ -161,22 +204,30 @@ function Food() {
 }
 
 function keyPressed() {
-  if(keyCode === UP_ARROW) {
+  if(keyCode === 87 | keyCode === 38) {         // press w or up arrow
     s.dir = "up";
     s.move(0,-1);
-  } else if(keyCode === DOWN_ARROW) {
+  } else if(keyCode === 83 | keyCode === 40) {  // press s or down arrow
     s.dir = "down";
     s.move(0,1);
-  } else if(keyCode === RIGHT_ARROW) {
+  } else if(keyCode === 68 | keyCode === 39) {  // press d or right arrow
     s.dir = "right";
     s.move(1,0);
-  } else if(keyCode === LEFT_ARROW) {
+  } else if(keyCode === 65 | keyCode === 37) {  // press a or left arrow
     s.dir = "left";
     s.move(-1,0);
-  } else {
+  } else if(keyCode === 13) {                   // press Enter
+    frameRate(fps);
+    scl = newscl;
     s = new Snake();
     f = new Food();
     loop();
+  } else if(keyCode === 32) {                   // press Space
+    if(isLooping()) {
+      noLoop();
+    } else {
+      loop();
+    }
   }
 }
 
@@ -236,3 +287,30 @@ function newhighscore() {
   stroke(255);
   text("new highscore!",width / 2,height / 2);
 }
+
+function sclr20() {
+  newscl = 20;
+}
+
+function sclr30() {
+  newscl = 30;
+}
+
+function sclr40() {
+  newscl = 40;
+}
+
+function sclr50() {
+  newscl = 50;
+}
+
+function fstr() {
+  if(fps < 20) {
+    fps += 2;
+  }
+}
+
+function slwr() {
+  if(fps > 0) {
+    fps -= 2;
+  }}
