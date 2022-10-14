@@ -52,22 +52,22 @@ function setup() {
   f = new Food();
   start = true;
   tiny = createButton('tiny');
-  tiny.mouseClicked(sclr20);
+  tiny.mousePressed(sclr20);
   tiny.position(windowWidth - 200, 60)
   small = createButton('small');
-  small.mouseClicked(sclr30);
+  small.mousePressed(sclr30);
   small.position(windowWidth - 200, 90)
   big = createButton('big');
-  big.mouseClicked(sclr40);
+  big.mousePressed(sclr40);
   big.position(windowWidth - 200, 120)
   chunky = createButton('chunky');
-  chunky.mouseClicked(sclr50);
+  chunky.mousePressed(sclr50);
   chunky.position(windowWidth - 200, 150)
   faster = createButton('faster');
-  faster.mouseClicked(fstr);
+  faster.mousePressed(fstr);
   faster.position(windowWidth - 200, 250)
   slower = createButton('slower');
-  slower.mouseClicked(slwr);
+  slower.mousePressed(slwr);
   slower.position(windowWidth - 200, 280)
 }
 
