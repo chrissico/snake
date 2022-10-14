@@ -44,7 +44,7 @@ function setup() {
   var x = (windowWidth - width) / 2;
   var y = (windowHeight - height) / 2;
   cnv.position(x, y);
-  var txt = createDiv('<h3>HOW TO PLAY:<br>PLAY: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
+  var txt = createDiv('<h2>HOW TO PLAY:<h2><h3><br>PLAY: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
   txt.position(60, 60);
   frameRate(fps);
   textFont(font);
