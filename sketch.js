@@ -43,9 +43,10 @@ function setup() {
   var cnv = createCanvas(600,600);
   var x = (windowWidth - width) / 2;
   var y = (windowHeight - height) / 2;
+  var buttonx = x + width + 80;
   cnv.position(x, y);
   var txt = createDiv('<h2>HOW TO PLAY:</h2><h3><br><br>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD<br><br><br>Hit Enter after clicking Buttons</h3>');
-  txt.position(x - 280, y);
+  txt.position(x - 340, y);
   frameRate(fps);
   textFont(font);
   s = new Snake();
@@ -53,22 +54,22 @@ function setup() {
   start = true;
   tiny = createButton('tiny');
   tiny.mousePressed(sclr20);
-  tiny.position(windowWidth - 200, y)
+  tiny.position(buttonx, y)
   small = createButton('small');
   small.mousePressed(sclr30);
-  small.position(windowWidth - 200, y + 30)
+  small.position(buttonx, y + 30)
   big = createButton('big');
   big.mousePressed(sclr40);
-  big.position(windowWidth - 200, y + 60)
+  big.position(buttonx, y + 60)
   chunky = createButton('chunky');
   chunky.mousePressed(sclr50);
-  chunky.position(windowWidth - 200, y + 90)
+  chunky.position(buttonx, y + 90)
   faster = createButton('faster');
   faster.mousePressed(fstr);
-  faster.position(windowWidth - 200, y + 190)
+  faster.position(buttonx, y + 190)
   slower = createButton('slower');
   slower.mousePressed(slwr);
-  slower.position(windowWidth - 200, y + 220)
+  slower.position(buttonx, y + 220)
 }
 
 function draw() {
