@@ -45,7 +45,7 @@ function setup() {
   var y = (windowHeight - height) / 2;
   cnv.position(x, y);
   var txt = createDiv('<h2>HOW TO PLAY:</h2><h3><br><br>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD<br><br><br>Hit Enter after clicking Buttons</h3>');
-  txt.position(x - 200, y);
+  txt.position(x - 280, y);
   frameRate(fps);
   textFont(font);
   s = new Snake();
