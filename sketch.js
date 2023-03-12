@@ -78,6 +78,7 @@ function setup() {
   slower.mousePressed(slwr);
   slower.position(buttonx, buttony + 90)
   
+  // set up game
   frameRate(fps);
   textFont(font);
   s = new Snake();
@@ -89,7 +90,7 @@ function draw() {
   background(backgroundcolor);
   if(start) {
     startScreen();
-  } else if (!s.die) {
+  } else if (!s.dead) {
     s.go();
     s.eat();
     s.show();
@@ -115,15 +116,15 @@ function Snake() {
   this.ygo = 0;
   // tail length
   this.tail = [];
-  this.die = false;
+  this.dead = false;
   this.dir = "";
 
   this.go = function() {
     newx = this.x + this.xgo * scl;
     newy = this.y + this.ygo * scl;
     
-    if(this.dead(newx,newy)) {
-      this.die = true;
+    if(this.die(newx,newy)) {
+      this.dead = true;
       noLoop();
     } else {
       for(var i = 0; i < this.tail.length - 1; i++) {
@@ -152,7 +153,7 @@ function Snake() {
     }
   }
 
-  this.dead = function(newx,newy) {
+  this.die = function(newx,newy) {
     // snake hits wall
     if(newx < 0 | newx > width - scl | newy < 0 | newy > height - scl) {
       return true;
@@ -168,12 +169,15 @@ function Snake() {
   }
 
   this.show = function() {
+    // show snake's head
     fill(snakecolor);
     stroke(snakecolor);
     rect(this.x,this.y, scl);
+    //show snake's tail
     for(var i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, scl);
     }
+    // show snake's eyes
     fill(snakeeyescolor);
     stroke(snakeeyescolor);
     if(this.dir == "up") {
@@ -274,7 +278,7 @@ function gameover() {
   text("game over", width / 2, middle - 20);
   textSize(35);
   text("highscore " + highscore + "\nscore " + s.tail.length, width / 2, middle + 40);
-//   noLoop();
+  noLoop();
 }
 
 function score() {
