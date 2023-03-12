@@ -90,22 +90,24 @@ function draw() {
   background(backgroundcolor);
   if(start) {
     startScreen();
-  } else {
+  } else if (!s.dead) {
     s.go();
     s.eat();
-      if (!s.dead) {
-      s.show();
-      f.show();
-      score();
-    } else if(s.tail.length > highscore) {
-      winsound.play();
-      highscore = s.tail.length;
-      score();
-      newhighscore();
-    } else {
-      diesound.play();
-      gameover();
-    }
+    s.show();
+    f.show();
+    score();
+  } else if(s.tail.length > highscore) {
+    s.go();
+    s.eat();
+    winsound.play();
+    highscore = s.tail.length;
+    score();
+    newhighscore();
+  } else {
+//     s.go();
+//     s.eat();
+    diesound.play();
+    gameover();
   }
 }
 
