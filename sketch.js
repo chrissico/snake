@@ -46,7 +46,7 @@ function setup() {
   var y = (windowHeight - height) / 2;
   cnv.position(x, y);
   
-  var txt = createDiv('<h2>HOW TO PLAY:</h2><h3><br><br>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD<br><br><br>Hit Enter after clicking Buttons</h3>');
+  var txt = createDiv('<h2>HOW TO PLAY:</h2><h3><br><br>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
   txt.position(x - 340, y);
   
   var buttonx = x + width + 80;
@@ -101,13 +101,13 @@ function draw() {
 }
 
 function Snake() {
-  // Position
+  // position
   this.x = floor(random(width / scl)) * scl;
   this.y = floor(random(height / scl)) * scl;
-  // Richtung
+  // direction
   this.xgo = 0;
   this.ygo = 0;
-  //Länge
+  // tail length
   this.tail = [];
   this.die = false;
   this.dir = "";
@@ -147,12 +147,12 @@ function Snake() {
   }
 
   this.dead = function(newx,newy) {
-    // Schlange stößt an Grenze
+    // snake hits wall
     if(newx < 0 | newx > width - scl | newy < 0 | newy > height - scl) {
       return true;
     } else {
       for(var i = 0; i < this.tail.length; i++) {
-        // Schlange beißt sich selbst
+        // snake bites its tail
         if(newx === this.tail[i].x & newy === this.tail[i].y) {
           return true;
         }
@@ -294,29 +294,44 @@ function newhighscore() {
   text("new highscore!",width / 2,height / 2);
 }
 
+function restart() {
+  frameRate(fps);
+  scl = newscl;
+  s = new Snake();
+  f = new Food();
+  loop();
+}
+
 function sclr20() {
   newscl = 20;
+  restart();
 }
 
 function sclr30() {
   newscl = 30;
+  restart();
 }
 
 function sclr40() {
   newscl = 40;
+  restart();
 }
 
 function sclr50() {
   newscl = 50;
+  restart();
 }
 
 function fstr() {
   if(fps < 20) {
     fps += 2;
+    restart();
   }
 }
 
 function slwr() {
   if(fps > 2) {
     fps -= 2;
-  }}
+    restart();
+  }
+}
