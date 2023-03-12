@@ -89,22 +89,20 @@ function draw() {
   background(backgroundcolor);
   if(start) {
     startScreen();
-  } else {
+  } else if (!s.die) {
     s.go();
     s.eat();
-    if(!s.die) {
-      s.show();
-      f.show();
-      score();
-    } else if(s.tail.length > highscore) {
-      winsound.play();
-      highscore = s.tail.length;
-      score();
-      newhighscore();
-    } else {
-      diesound.play();
-      gameover();
-    }
+    s.show();
+    f.show();
+    score();
+  } else if(s.tail.length > highscore) {
+    winsound.play();
+    highscore = s.tail.length;
+    score();
+    newhighscore();
+  } else {
+    diesound.play();
+    gameover();
   }
 }
 
@@ -218,32 +216,29 @@ function Food() {
 }
 
 function keyPressed() {
-  if(keyCode === 13) {                   // press Enter
+  if(keyCode === 87 | keyCode === 38) {         // press w or up arrow
+    s.dir = "up";
+    s.move(0,-1);
+  } else if(keyCode === 83 | keyCode === 40) {  // press s or down arrow
+    s.dir = "down";
+    s.move(0,1);
+  } else if(keyCode === 68 | keyCode === 39) {  // press d or right arrow
+    s.dir = "right";
+    s.move(1,0);
+  } else if(keyCode === 65 | keyCode === 37) {  // press a or left arrow
+    s.dir = "left";
+    s.move(-1,0);
+  } else if(keyCode === 13) {                   // press Enter
     frameRate(fps);
     scl = newscl;
     s = new Snake();
     f = new Food();
     loop();
-  }
-  if(!s.die) {
-    if(keyCode === 87 | keyCode === 38) {         // press w or up arrow
-      s.dir = "up";
-      s.move(0,-1);
-    } else if(keyCode === 83 | keyCode === 40) {  // press s or down arrow
-      s.dir = "down";
-      s.move(0,1);
-    } else if(keyCode === 68 | keyCode === 39) {  // press d or right arrow
-      s.dir = "right";
-      s.move(1,0);
-    } else if(keyCode === 65 | keyCode === 37) {  // press a or left arrow
-      s.dir = "left";
-      s.move(-1,0);
-    } else if(keyCode === 32) {                   // press Space
-      if(isLooping()) {
-        noLoop();
-      } else {
-        loop();
-      }
+  } else if(keyCode === 32) {                   // press Space
+    if(isLooping()) {
+      noLoop();
+    } else {
+      loop();
     }
   }
 }
