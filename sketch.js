@@ -266,7 +266,7 @@ function startScreen() {
 }
 
 function gameover() {
-  background(255,218,104); // 210,190,255);
+  background(255,225,132); // 210,190,255);
   f.show();
   s.show();
   textAlign(CENTER);
