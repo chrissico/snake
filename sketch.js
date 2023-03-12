@@ -218,29 +218,32 @@ function Food() {
 }
 
 function keyPressed() {
-  if(keyCode === 87 | keyCode === 38) {         // press w or up arrow
-    s.dir = "up";
-    s.move(0,-1);
-  } else if(keyCode === 83 | keyCode === 40) {  // press s or down arrow
-    s.dir = "down";
-    s.move(0,1);
-  } else if(keyCode === 68 | keyCode === 39) {  // press d or right arrow
-    s.dir = "right";
-    s.move(1,0);
-  } else if(keyCode === 65 | keyCode === 37) {  // press a or left arrow
-    s.dir = "left";
-    s.move(-1,0);
-  } else if(keyCode === 13) {                   // press Enter
+  if(keyCode === 13) {                   // press Enter
     frameRate(fps);
     scl = newscl;
     s = new Snake();
     f = new Food();
     loop();
-  } else if(keyCode === 32) {                   // press Space
-    if(isLooping()) {
-      noLoop();
-    } else {
-      loop();
+  }
+  if(!s.die) {
+    if(keyCode === 87 | keyCode === 38) {         // press w or up arrow
+      s.dir = "up";
+      s.move(0,-1);
+    } else if(keyCode === 83 | keyCode === 40) {  // press s or down arrow
+      s.dir = "down";
+      s.move(0,1);
+    } else if(keyCode === 68 | keyCode === 39) {  // press d or right arrow
+      s.dir = "right";
+      s.move(1,0);
+    } else if(keyCode === 65 | keyCode === 37) {  // press a or left arrow
+      s.dir = "left";
+      s.move(-1,0);
+    } else if(keyCode === 32) {                   // press Space
+      if(isLooping()) {
+        noLoop();
+      } else {
+        loop();
+      }
     }
   }
 }
@@ -251,9 +254,9 @@ function startScreen() {
   textAlign(CENTER);
   textSize(fontsize);
   fill(235,0,170);
-  text("snake",width / 2 - 5, middle + 5);
+  text("snake", width / 2 - 5, middle + 5);
   fill(255);
-  text("snake",width / 2, middle);
+  text("snake", width / 2, middle);
   start = false;
   noLoop();
 }
@@ -273,7 +276,7 @@ function gameover() {
   textSize(fontsize);
   fill(255);
   stroke(255);
-  text("game over",width / 2,middle - 20);
+  text("game over", width / 2, middle - 20);
   textSize(35);
   text("highscore " + highscore + "\nscore " + s.tail.length, width / 2, middle + 40);
   noLoop();
@@ -284,13 +287,13 @@ function score() {
   noStroke();
   textAlign(RIGHT);
   fill(255,140,255);
-  text(s.tail.length,width - 13,33);
+  text(s.tail.length, width - 13,33);
   fill(255);
-  text(s.tail.length,width - 10,30);
+  text(s.tail.length, width - 10,30);
 }
 
 function newhighscore() {
-  localStorage.setItem("highscore",highscore);
+  localStorage.setItem("highscore", highscore);
   f.show();
   s.show();
   textAlign(CENTER);
@@ -301,14 +304,6 @@ function newhighscore() {
   fill(255);
   stroke(255);
   text("new highscore!", width / 2, height / 2);
-}
-
-function restart() {
-  frameRate(fps);
-  scl = newscl;
-  s = new Snake();
-  f = new Food();
-  loop();
 }
 
 function sclr20() {
@@ -343,4 +338,12 @@ function slwr() {
     fps -= 2;
     restart();
   }
+}
+
+function restart() {
+  frameRate(fps);
+  scl = newscl;
+  s = new Snake();
+  f = new Food();
+  loop();
 }
