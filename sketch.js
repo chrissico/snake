@@ -242,10 +242,6 @@ function keyPressed() {
     } else if(keyCode === 32) {                   // press Space
       if(isLooping()) {
         noLoop();
-        textSize(fontsize);
-        fill(255);
-        stroke(255);
-        text("II", width / 2, middle);
       } else {
         loop();
       }
