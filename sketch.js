@@ -90,24 +90,22 @@ function draw() {
   background(backgroundcolor);
   if(start) {
     startScreen();
-  } else if (!s.dead) {
-    s.go();
-    s.eat();
-    s.show();
-    f.show();
-    score();
-  } else if(s.tail.length > highscore) {
-    s.go();
-    s.eat();
-    winsound.play();
-    highscore = s.tail.length;
-    score();
-    newhighscore();
   } else {
-//     s.go();
-//     s.eat();
-    diesound.play();
-    gameover();
+    s.go();
+    s.eat();
+    if (!s.dead) {
+      s.show();
+      f.show();
+      score();
+    } else if(s.tail.length > highscore) {
+      winsound.play();
+      highscore = s.tail.length;
+      score();
+      newhighscore();
+    } else {
+      diesound.play();
+      gameover();
+    }
   }
 }
 
@@ -130,7 +128,7 @@ function Snake() {
     if(this.die(newx,newy)) {
       this.dead = true;
       noLoop();
-    } else {
+    } else if(!this.dead) {
       for(var i = 0; i < this.tail.length - 1; i++) {
         this.tail[i] = this.tail[i + 1];
       }
