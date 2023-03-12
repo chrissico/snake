@@ -285,7 +285,7 @@ function score() {
   textSize(30);
   noStroke();
   textAlign(RIGHT);
-  fill(65,160,255); // 255,140,255);
+  fill(127,191,255); // 255,140,255);
   text(s.tail.length, width - 13,33);
   fill(255);
   text(s.tail.length, width - 10,30);
