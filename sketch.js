@@ -222,28 +222,25 @@ function Food() {
 }
 
 function keyPressed() {
-  if(!s.dead) {
-    if(keyCode === 87 | keyCode === 38) {         // press w or up arrow
-      s.dir = "up";
-      s.move(0,-1);
-    } else if(keyCode === 83 | keyCode === 40) {  // press s or down arrow
-      s.dir = "down";
-      s.move(0,1);
-    } else if(keyCode === 68 | keyCode === 39) {  // press d or right arrow
-      s.dir = "right";
-      s.move(1,0);
-    } else if(keyCode === 65 | keyCode === 37) {  // press a or left arrow
-      s.dir = "left";
-      s.move(-1,0);
-    } else if(keyCode === 32) {                   // press Space
-      if(isLooping()) {
-        noLoop();
-      } else {
-        loop();
-      }
+  if(keyCode === 87 | keyCode === 38) {         // press w or up arrow
+    s.dir = "up";
+    s.move(0,-1);
+  } else if(keyCode === 83 | keyCode === 40) {  // press s or down arrow
+    s.dir = "down";
+    s.move(0,1);
+  } else if(keyCode === 68 | keyCode === 39) {  // press d or right arrow
+    s.dir = "right";
+    s.move(1,0);
+  } else if(keyCode === 65 | keyCode === 37) {  // press a or left arrow
+    s.dir = "left";
+    s.move(-1,0);
+  } else if(keyCode === 32) {                   // press Space
+    if(isLooping()) {
+      noLoop();
+    } else {
+      loop();
     }
-  }
-  if(keyCode === 13) {                            // press Enter
+  } else if(keyCode === 13) {                            // press Enter
       frameRate(fps);
       scl = newscl;
       s = new Snake();
@@ -266,13 +263,13 @@ function startScreen() {
 }
 
 function gameover() {
-  background(210,190,255);
+  background(255,218,104); // 210,190,255);
   f.show();
   s.show();
   textAlign(CENTER);
   let middle = height / 2;
   textSize(fontsize);
-  fill(185,155,250);
+  fill(255,202,37); // 185,155,250);
   stroke(185,155,250);
   text("game over", width / 2 - 5, middle - 15);
   textSize(35);
