@@ -299,8 +299,8 @@ function newhighscore() {
   s.show();
   textAlign(CENTER);
   textSize(fontsize);
-  fill(255,140,255);
-  stroke(255,140,255);
+  fill(255,202,37); // 255,140,255);
+  stroke(255,202,37); // 255,140,255);
   text("new highscore!", width / 2 - 5, height / 2 + 5);
   fill(255);
   stroke(255);
