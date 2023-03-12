@@ -32,7 +32,7 @@ var winsound;
 
 function preload() {
   font = loadFont('square-deal/square-deal.ttf');
-  highscore = localStorage.getItem("highscore") === null ? 0 : localStorage.getItem("highscore");
+  highscore = window.localStorage.getItem("highscore") === null ? 0 : window.localStorage.getItem("highscore");
   soundFormats('ogg', 'wav');
   eatsound = loadSound("sound/crunch.wav");
   diesound = loadSound("sound/bong.ogg");
