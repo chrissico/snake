@@ -90,20 +90,22 @@ function draw() {
   background(backgroundcolor);
   if(start) {
     startScreen();
-  } else if (!s.dead) {
+  } else {
     s.go();
     s.eat();
-    s.show();
-    f.show();
-    score();
-  } else if(s.tail.length > highscore) {
-    winsound.play();
-    highscore = s.tail.length;
-    score();
-    newhighscore();
-  } else {
-    diesound.play();
-    gameover();
+      if (!s.dead) {
+      s.show();
+      f.show();
+      score();
+    } else if(s.tail.length > highscore) {
+      winsound.play();
+      highscore = s.tail.length;
+      score();
+      newhighscore();
+    } else {
+      diesound.play();
+      gameover();
+    }
   }
 }
 
