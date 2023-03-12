@@ -248,7 +248,7 @@ function startScreen() {
   noStroke();
   textAlign(CENTER);
   textSize(fontsize);
-  fill(235,0,170);
+  fill(225,0,0); // 235,0,170);
   text("snake", width / 2 - 5, middle + 5);
   fill(255);
   text("snake", width / 2, middle);
@@ -281,14 +281,14 @@ function score() {
   textSize(30);
   noStroke();
   textAlign(RIGHT);
-  fill(255,140,255);
+  fill(65,160,255); // 255,140,255);
   text(s.tail.length, width - 13,33);
   fill(255);
   text(s.tail.length, width - 10,30);
 }
 
 function newhighscore() {
-  localStorage.setItem("highscore", highscore);
+  window.localStorage.setItem("highscore", highscore);
   f.show();
   s.show();
   textAlign(CENTER);
