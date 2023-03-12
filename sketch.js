@@ -241,11 +241,11 @@ function keyPressed() {
       s.move(-1,0);
     } else if(keyCode === 32) {                   // press Space
       if(isLooping()) {
+        noLoop();
         textSize(fontsize);
         fill(255);
         stroke(255);
         text("II", width / 2, middle);
-        noLoop();
       } else {
         loop();
       }
