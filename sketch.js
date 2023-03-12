@@ -283,7 +283,7 @@ function gameover() {
   text("game over", width / 2, middle - 20);
   textSize(35);
   text("highscore " + highscore + "\nscore " + s.tail.length, width / 2, middle + 40);
-//   noLoop();
+  noLoop();
 }
 
 function score() {
