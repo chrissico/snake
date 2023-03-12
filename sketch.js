@@ -41,7 +41,7 @@ function preload() {
 
 function setup() {
   // set up canvas
-  var cnv = createCanvas(600,600);
+  var cnv = createCanvas(600, 600);
   var x = (windowWidth - width) / 2;
   var y = (windowHeight - height) / 2;
   cnv.position(x, y);
@@ -88,20 +88,24 @@ function setup() {
 
 function draw() {
   background(backgroundcolor);
+  // start screen
   if(start) {
     startScreen();
   } else {
     s.go();
     s.eat();
+    // snake not dead
     if (!s.dead) {
       s.show();
       f.show();
       score();
+    // snake dead and new highscore
     } else if(s.tail.length > highscore) {
       winsound.play();
       highscore = s.tail.length;
       score();
       newhighscore();
+    // snake just dead
     } else {
       diesound.play();
       gameover();
@@ -237,6 +241,10 @@ function keyPressed() {
       s.move(-1,0);
     } else if(keyCode === 32) {                   // press Space
       if(isLooping()) {
+        textSize(fontsize);
+        fill(255);
+        stroke(255);
+        text("II", width / 2, middle);
         noLoop();
       } else {
         loop();
