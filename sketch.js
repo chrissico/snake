@@ -1,7 +1,7 @@
 var s;        // snake
 var f;        // food
 
-//appearance
+// appearance
 var font;
 var fontsize = 80;
 var backgroundcolor = "rgb(189,222,255)"// "rgb(255,210,255)";
@@ -46,26 +46,34 @@ function setup() {
   var y = (windowHeight - height) / 2;
   cnv.position(x, y);
   
+  // set up info text
   var txt = createDiv('<h2>HOW TO PLAY:</h2><h3><br><br>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
   txt.position(x - 340, y);
   
+  // set up buttons
   var buttonx = x + width + 80;
   var buttony = y + height / 2
+  
   tiny = createButton('tiny');
   tiny.mousePressed(sclr20);
   tiny.position(buttonx, buttony - 90)
+  
   small = createButton('small');
   small.mousePressed(sclr30);
   small.position(buttonx, buttony - 60)
+  
   big = createButton('big');
   big.mousePressed(sclr40);
   big.position(buttonx, buttony - 30)
+  
   chunky = createButton('chunky');
   chunky.mousePressed(sclr50);
   chunky.position(buttonx, buttony)
+  
   faster = createButton('faster');
   faster.mousePressed(fstr);
   faster.position(buttonx, buttony + 60)
+  
   slower = createButton('slower');
   slower.mousePressed(slwr);
   slower.position(buttonx, buttony + 90)
@@ -123,21 +131,21 @@ function Snake() {
       for(var i = 0; i < this.tail.length - 1; i++) {
         this.tail[i] = this.tail[i + 1];
       }
-      this.tail[this.tail.length - 1] = createVector(this.x,this.y);
+      this.tail[this.tail.length - 1] = createVector(this.x, this.y);
 
       this.x = newx;
       this.y = newy;
     }
   }
   
-  this.move = function(x,y) {
+  this.move = function(x, y) {
     this.xgo = x;
     this.ygo = y;
   }
   
   this.eat = function() {
     if(this.x === f.x & this.y === f.y) {
-      this.tail[this.tail.length] = createVector(this.x,this.y);
+      this.tail[this.tail.length] = createVector(this.x, this.y);
       f = new Food();
       eatsound.play();
       while(f.isinsnake(this.tail)) {
@@ -164,9 +172,9 @@ function Snake() {
   this.show = function() {
     fill(snakecolor);
     stroke(snakecolor);
-    rect(this.x,this.y,scl);
+    rect(this.x,this.y, scl);
     for(var i = 0; i < this.tail.length; i++) {
-      rect(this.tail[i].x,this.tail[i].y,scl);
+      rect(this.tail[i].x, this.tail[i].y, scl);
     }
     fill(snakeeyescolor);
     stroke(snakeeyescolor);
@@ -193,7 +201,7 @@ function Food() {
   this.show = function() {
     fill(foodcolor);
     stroke(foodcolor);
-    rect(this.x,this.y,scl);
+    rect(this.x, this.y, scl);
     fill(foodhighlightcolor);
     stroke(foodhighlightcolor);
     rect(this.x + 2 * scl/5, this.y + scl/5, 2 * scl/5);
@@ -243,9 +251,9 @@ function startScreen() {
   textAlign(CENTER);
   textSize(fontsize);
   fill(235,0,170);
-  text("snake",width / 2 - 5,middle + 5);
+  text("snake",width / 2 - 5, middle + 5);
   fill(255);
-  text("snake",width / 2,middle);
+  text("snake",width / 2, middle);
   start = false;
   noLoop();
 }
@@ -259,15 +267,15 @@ function gameover() {
   textSize(fontsize);
   fill(185,155,250);
   stroke(185,155,250);
-  text("game over",width / 2 - 5,middle - 15);
+  text("game over", width / 2 - 5, middle - 15);
   textSize(35);
-  text("highscore " + highscore + "\nscore " + s.tail.length,width / 2 - 5,middle + 45);
+  text("highscore " + highscore + "\nscore " + s.tail.length, width / 2 - 5, middle + 45);
   textSize(fontsize);
   fill(255);
   stroke(255);
   text("game over",width / 2,middle - 20);
   textSize(35);
-  text("highscore " + highscore + "\nscore " + s.tail.length,width / 2,middle + 40);
+  text("highscore " + highscore + "\nscore " + s.tail.length, width / 2, middle + 40);
 }
 
 function score() {
@@ -288,10 +296,10 @@ function newhighscore() {
   textSize(fontsize);
   fill(255,140,255);
   stroke(255,140,255);
-  text("new highscore!",width / 2 - 5,height / 2 + 5);
+  text("new highscore!", width / 2 - 5, height / 2 + 5);
   fill(255);
   stroke(255);
-  text("new highscore!",width / 2,height / 2);
+  text("new highscore!", width / 2, height / 2);
 }
 
 function restart() {
