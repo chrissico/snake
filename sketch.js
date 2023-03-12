@@ -270,7 +270,7 @@ function gameover() {
   let middle = height / 2;
   textSize(fontsize);
   fill(255,202,37); // 185,155,250);
-  stroke(185,155,250);
+  stroke(255,202,37); // 185,155,250);
   text("game over", width / 2 - 5, middle - 15);
   textSize(35);
   text("highscore " + highscore + "\nscore " + s.tail.length, width / 2 - 5, middle + 45);
