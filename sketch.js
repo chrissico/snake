@@ -4,7 +4,7 @@ var f;        // food
 // appearance
 var font;
 var fontsize = 80;
-var backgroundcolor = "rgb(189,222,255)" // "rgb(255,210,255)";
+var backgroundcolor = "rgb(189,222,255)"; // "rgb(255,210,255)";
 var snakecolor = "rgb(100,160,100)";
 var snakeeyescolor = "rgb(200,255,50)";
 var foodcolor = "rgb(200,0,50)";
@@ -17,7 +17,7 @@ var highscore;
 var scl = 30;        // scale
 var newscl = 30;
 var tiny;
-var small
+var small;
 var big;
 var chunky;
 var fps = 8;
@@ -52,31 +52,31 @@ function setup() {
   
   // set up buttons
   var buttonx = x + width + 80;
-  var buttony = y + height / 2
+  var buttony = y + height / 2;
   
   tiny = createButton('tiny');
   tiny.mousePressed(sclr20);
-  tiny.position(buttonx, buttony - 90)
+  tiny.position(buttonx, buttony - 90);
   
   small = createButton('small');
   small.mousePressed(sclr30);
-  small.position(buttonx, buttony - 60)
+  small.position(buttonx, buttony - 60);
   
   big = createButton('big');
   big.mousePressed(sclr40);
-  big.position(buttonx, buttony - 30)
+  big.position(buttonx, buttony - 30);
   
   chunky = createButton('chunky');
   chunky.mousePressed(sclr50);
-  chunky.position(buttonx, buttony)
+  chunky.position(buttonx, buttony);
   
   faster = createButton('faster');
   faster.mousePressed(fstr);
-  faster.position(buttonx, buttony + 60)
+  faster.position(buttonx, buttony + 60);
   
   slower = createButton('slower');
   slower.mousePressed(slwr);
-  slower.position(buttonx, buttony + 90)
+  slower.position(buttonx, buttony + 90);
   
   // set up game
   frameRate(fps);
@@ -125,7 +125,7 @@ function Snake() {
     newx = this.x + this.xgo * scl;
     newy = this.y + this.ygo * scl;
     
-    if(this.die(newx,newy)) {
+    if(this.die(newx, newy)) {
       this.dead = true;
       noLoop();
     } else if(!this.dead) {
