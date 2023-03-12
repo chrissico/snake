@@ -241,6 +241,10 @@ function keyPressed() {
       s.move(-1,0);
     } else if(keyCode === 32) {                   // press Space
       if(isLooping()) {
+        textSize(fontsize);
+        fill(255);
+        stroke(255);
+        text("game over", width / 2, height / 2 - 20);
         noLoop();
       } else {
         loop();
