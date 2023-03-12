@@ -4,7 +4,7 @@ var f;        // food
 // appearance
 var font;
 var fontsize = 80;
-var backgroundcolor = "rgb(189,222,255)"// "rgb(255,210,255)";
+var backgroundcolor = "rgb(189,222,255)" // "rgb(255,210,255)";
 var snakecolor = "rgb(100,160,100)";
 var snakeeyescolor = "rgb(200,255,50)";
 var foodcolor = "rgb(200,0,50)";
@@ -48,7 +48,7 @@ function setup() {
   
   // set up info text
   var txt = createDiv('<h2>HOW TO PLAY:</h2><h3><br><br>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
-  txt.position(x - 340, y);
+  txt.position(x - 300, y + 40);
   
   // set up buttons
   var buttonx = x + width + 80;
