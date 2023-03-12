@@ -272,8 +272,8 @@ function gameover() {
   textAlign(CENTER);
   let middle = height / 2;
   textSize(fontsize);
-  fill(255,202,37); // 185,155,250);
-  stroke(255,202,37); // 185,155,250);
+  fill(255,199,23); // 185,155,250);
+  stroke(255,199,23); // 185,155,250);
   text("game over", width / 2 - 5, middle - 15);
   textSize(35);
   text("highscore " + highscore + "\nscore " + s.tail.length, width / 2 - 5, middle + 45);
@@ -302,8 +302,8 @@ function newhighscore() {
   s.show();
   textAlign(CENTER);
   textSize(fontsize);
-  fill(255,202,37); // 255,140,255);
-  stroke(255,202,37); // 255,140,255);
+  fill(255,199,23); // 255,140,255);
+  stroke(255,199,23); // 255,140,255);
   text("new highscore!", width / 2 - 5, height / 2 + 5);
   fill(255);
   stroke(255);
