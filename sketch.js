@@ -265,7 +265,7 @@ function startScreen() {
   noStroke();
   textAlign(CENTER);
   textSize(fontsize);
-  fill(225,0,0); // 235,0,170);
+  fill(foodcolor); // 235,0,170);
   text("snake", width / 2 - 5, middle + 5);
   fill(255);
   text("snake", width / 2, middle);
@@ -280,8 +280,8 @@ function gameover() {
   textAlign(CENTER);
   let middle = height / 2;
   textSize(fontsize);
-  fill(255,199,23); // 185,155,250);
-  stroke(255,199,23); // 185,155,250);
+  fill(foodcolor); // 185,155,250);
+  stroke(foodcolor); // 185,155,250);
   text("game over", width / 2 - 5, middle - 15);
   textSize(35);
   text("highscore " + highscore + "\nscore " + s.tail.length, width / 2 - 5, middle + 45);
@@ -298,10 +298,10 @@ function score() {
   textSize(30);
   noStroke();
   textAlign(RIGHT);
-  fill(127,191,255); // 255,140,255);
-  text(s.tail.length, width - 13,33);
+  fill(foodcolor);// 127,191,255); // 255,140,255);
+  text(s.tail.length, width - 13, 33);
   fill(255);
-  text(s.tail.length, width - 10,30);
+  text(s.tail.length, width - 10, 30);
 }
 
 function newhighscore() {
@@ -310,8 +310,8 @@ function newhighscore() {
   s.show();
   textAlign(CENTER);
   textSize(fontsize);
-  fill(255,199,23); // 255,140,255);
-  stroke(255,199,23); // 255,140,255);
+  fill(foodcolor); // 255,140,255);
+  stroke(foodcolor); // 255,140,255);
   text("new highscore!", width / 2 - 5, height / 2 + 5);
   fill(255);
   stroke(255);
