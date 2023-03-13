@@ -99,7 +99,7 @@ function draw() {
     s.go();
     s.eat();
     // snake not dead
-    if (!s.dead) {
+    if (!s.dead and !pause) {
       s.show();
       f.show();
       score();
@@ -109,15 +109,13 @@ function draw() {
       highscore = s.tail.length;
       score();
       newhighscore();
+    } else if(pause) {
+      pausescreen();
     // snake just dead
     } else {
       diesound.play();
       gameover();
     }
-  }
-  // pause screen
-  else {
-    pausescreen();
   }
 }
 
