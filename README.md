@@ -3,5 +3,5 @@
 only works on windows pcs right now
 <br>
 <br>
-[PLay](https://chrissico.github.io/snake/)
+### [PLAY](https://chrissico.github.io/snake/)
 
