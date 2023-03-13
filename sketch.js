@@ -10,17 +10,21 @@ var snakeeyescolor = "rgb(200,255,50)";
 var foodcolor = "rgb(200,0,50)";
 var foodhighlightcolor = "rgb(230,50,80)";
 
-// game setup
+// game set up
 var start;
 var file = "highscore";
 var highscore;
 var scl = 30;        // scale
 var newscl = 30;
+var fps = 8;
+var pause = false;
+
+// buttons
 var tiny;
 var small;
 var big;
 var chunky;
-var fps = 8;
+
 var faster;
 var slower;
 
@@ -91,7 +95,7 @@ function draw() {
   // start screen
   if(start) {
     startScreen();
-  } else {
+  } else if(!pause) {
     s.go();
     s.eat();
     // snake not dead
@@ -241,18 +245,20 @@ function keyPressed() {
       s.move(-1,0);
     } else if(keyCode === 32) {                   // press Space
       if(isLooping()) {
+        pause = true;
         f.show();
         s.show();
         textAlign(CENTER);
         textSize(fontsize);
         fill(foodcolor); // 255,140,255);
         stroke(foodcolor); // 255,140,255);
-        text("new highscore!", width / 2 - 5, height / 2 + 5);
+        text("ll", width / 2 - 5, height / 2 + 5);
         fill(255);
         stroke(255);
-        text("new highscore!", width / 2, height / 2);
+        text("ll", width / 2, height / 2);
         noLoop();
       } else {
+        pause = false;
         loop();
       }
     }  
