@@ -115,6 +115,10 @@ function draw() {
       gameover();
     }
   }
+  // pause screen
+  else {
+    pausescreen();
+  }
 }
 
 function Snake() {
@@ -246,16 +250,6 @@ function keyPressed() {
     } else if(keyCode === 32) {                   // press Space
       if(isLooping()) {
         pause = true;
-        f.show();
-        s.show();
-        textAlign(CENTER);
-        textSize(fontsize);
-        fill(foodcolor); // 255,140,255);
-        stroke(foodcolor); // 255,140,255);
-        text("ll", width / 2 - 5, height / 2 + 5);
-        fill(255);
-        stroke(255);
-        text("ll", width / 2, height / 2);
         noLoop();
       } else {
         pause = false;
@@ -329,6 +323,19 @@ function newhighscore() {
   stroke(255);
   text("new highscore!", width / 2, height / 2);
   noLoop();
+}
+
+function pausescreen() {
+  f.show();
+  s.show();
+  textAlign(CENTER);
+  textSize(fontsize);
+  fill(foodcolor); // 255,140,255);
+  stroke(foodcolor); // 255,140,255);
+  text("ll", width / 2 - 5, height / 2 + 5);
+  fill(255);
+  stroke(255);
+  text("ll", width / 2, height / 2);
 }
 
 function sclr20() {
