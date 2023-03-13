@@ -51,8 +51,9 @@ function setup() {
   cnv.position(x, y);
   
   // set up info text
-  var txt = createDiv('<h2>HOW TO PLAY<br></h2><h3>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
-  txt.position(x - 300, y + 40);
+//   var txt = createDiv('<h2>HOW TO PLAY<br></h2><h3>START: Enter<br>PAUSE: Space<br>MOVE: Arrow Keys / WASD</h3>');
+//   txt.position(x - 300, y + 40);
+  text("HOW TO PLAY\n\nSTART: ENTER\nPAUSE: SPACE\nMOVE: ARROW KEYS OR WASD", x-300, y + 80);
   
   // set up buttons
   var buttonx = x + width + 80;
