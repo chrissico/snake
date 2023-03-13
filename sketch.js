@@ -17,7 +17,7 @@ var highscore;
 var scl = 30;        // scale
 var newscl = 30;
 var fps = 8;
-var pause = false;
+var pause;
 
 // buttons
 var tiny;
@@ -88,6 +88,7 @@ function setup() {
   s = new Snake();
   f = new Food();
   start = true;
+  pause = false;
 }
 
 function draw() {
