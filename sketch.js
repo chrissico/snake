@@ -266,7 +266,8 @@ function keyPressed() {
       }
     }  
   }
-  if(keyCode === 13) {                            // press enter
+  // press enter
+  if(keyCode === 13) {
       frameRate(fps);
       scl = newscl;
       s = new Snake();
