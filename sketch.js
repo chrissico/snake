@@ -241,10 +241,16 @@ function keyPressed() {
       s.move(-1,0);
     } else if(keyCode === 32) {                   // press Space
       if(isLooping()) {
+        f.show();
+        s.show();
+        textAlign(CENTER);
         textSize(fontsize);
+        fill(foodcolor); // 255,140,255);
+        stroke(foodcolor); // 255,140,255);
+        text("new highscore!", width / 2 - 5, height / 2 + 5);
         fill(255);
         stroke(255);
-        text("game over", width / 2, height / 2 - 20);
+        text("new highscore!", width / 2, height / 2);
         noLoop();
       } else {
         loop();
@@ -316,6 +322,7 @@ function newhighscore() {
   fill(255);
   stroke(255);
   text("new highscore!", width / 2, height / 2);
+  noLoop();
 }
 
 function sclr20() {
