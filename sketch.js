@@ -96,7 +96,7 @@ function draw() {
   // start screen
   if(start) {
     startScreen();
-  } else if(!pause) {
+  } else {
     s.go();
     s.eat();
     // snake not dead
