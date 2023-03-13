@@ -99,7 +99,7 @@ function draw() {
     s.go();
     s.eat();
     // snake not dead
-    if (!s.dead and !pause) {
+    if (!s.dead & !pause) {
       s.show();
       f.show();
       score();
