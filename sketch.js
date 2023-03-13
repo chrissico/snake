@@ -333,10 +333,10 @@ function pausescreen() {
   textSize(fontsize);
   fill(foodcolor); // 255,140,255);
   stroke(foodcolor); // 255,140,255);
-  text("ll", width / 2 - 5, height / 2 + 5);
+  text("l l", width / 2 - 5, height / 2 + 5);
   fill(255);
   stroke(255);
-  text("ll", width / 2, height / 2);
+  text("l l", width / 2, height / 2);
 }
 
 function sclr20() {
