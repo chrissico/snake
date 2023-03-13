@@ -4,7 +4,7 @@ var f;        // food
 // appearance
 var font;
 var fontsize = 80;
-var backgroundcolor = "rgb(189,222,255)"; // "rgb(255,210,255)";
+var backgroundcolor = "rgb(189,222,255)"; // 255,210,255)";
 var snakecolor = "rgb(100,160,100)";
 var snakeeyescolor = "rgb(200,255,50)";
 var foodcolor = "rgb(200,0,50)";
