@@ -10,7 +10,7 @@ var snakeeyescolor = "rgb(200,255,50)";
 var foodcolor = "rgb(200,0,50)";
 var foodhighlightcolor = "rgb(230,50,80)";
 
-// game set up
+// game settings
 var start;
 var file = "highscore";
 var highscore;
@@ -36,7 +36,7 @@ var winsound;
 
 function preload() {
   font = loadFont('square-deal/square-deal.ttf');
-  highscore = window.localStorage.getItem("highscore") === null ? 0 : window.localStorage.getItem("highscore");
+  highscore = window.localStorage.getItem(file) === null ? 0 : window.localStorage.getItem(file);
   soundFormats('ogg', 'wav');
   eatsound = loadSound("sound/crunch.wav");
   diesound = loadSound("sound/bong.ogg");
@@ -312,7 +312,7 @@ function score() {
 }
 
 function newhighscore() {
-  window.localStorage.setItem("highscore", highscore);
+  window.localStorage.setItem(file, highscore);
   f.show();
   s.show();
   textAlign(CENTER);
