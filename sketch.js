@@ -333,11 +333,13 @@ function pausescreen() {
   textSize(fontsize);
   fill(foodcolor); // 255,140,255);
   stroke(foodcolor); // 255,140,255);
-  text("l l", width / 2 - 5, height / 2 + 5);
+  text("paused", width / 2 - 5, height / 2 + 5);
   fill(255);
   stroke(255);
-  text("l l", width / 2, height / 2);
+  text("paused", width / 2, height / 2);
 }
+
+// scaling functions
 
 function sclr20() {
   newscl = 20;
